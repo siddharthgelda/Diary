@@ -9,75 +9,73 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name="case")
-
+@Entity
+@Table(name = "case")
 public class Case2 {
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
-	
-	 String CaseNo;
-	// String AgainstClient;
-	// String Advocate;
-	// String Stage; 
-	//String FileNo;
-	 //String Descripation;
-	//private String Data;
-	//private Date PrevDate;
-	//private Date NextDate;
-	
-	/*@ManyToOne
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    String CaseNo;
+    // String AgainstClient;
+    // String Advocate;
+    // String Stage; 
+    //String FileNo;
+    //String Descripation;
+    //private String Data;
+    //private Date PrevDate;
+    //private Date NextDate;
+
+    /*@ManyToOne
 	private User user;
 	@ManyToOne
 	private Company company;*/
-/*	@ManyToOne
+ /*	@ManyToOne
 	private City city;
 	@ManyToOne
 	private Court court;
-*/	
-	
-	
-	
-	public Case2() {
-		super();
-	}
-	
-	public Case2(Long id, String caseNo, String againstClient, String advocate, String stage, String fileNo,
-			String descripation, String data, Date prev_Date, Date next_Date) {
-		super();
-		this.id = id;
-		CaseNo = caseNo;
-		//AgainstClient = againstClient;
-		//Advocate = advocate;
-		//Stage = stage;
-		//FileNo = fileNo;
-		//Descripation = descripation;
-		//Data = data;
-		//PrevDate = prev_Date;
-		//NextDate = next_Date;
-	}
+     */
+    public Case2() {
+        super();
+    }
 
-	public Case2(Long id, String caseNo, String againstClient, String advocate, String stage, String fileNo,
-			String descripation, String data, Date prev_Date, Date next_Date, User user, Company company, City city,
-			Court court) {
-		super();
-		this.id = id;
-		CaseNo = caseNo;
-		//AgainstClient = againstClient;
-		//Advocate = advocate;
-		//Stage = stage;
-		//FileNo = fileNo;
-		//Descripation = descripation;
-		//Data = data;
-		//PrevDate = prev_Date;
-		//NextDate = next_Date;
-		//this.user = user;
-		//this.company = company;
-		//this.city = city;
-		//this.court = court;
-	}
-	/*public User getUser() {
+    public Case2(Long id, String caseNo, String againstClient, String advocate, String stage, String fileNo,
+            String descripation, String data, Date prev_Date, Date next_Date) {
+        super();
+        this.id = id;
+        CaseNo = caseNo;
+        //AgainstClient = againstClient;
+        //Advocate = advocate;
+        //Stage = stage;
+        //FileNo = fileNo;
+        //Descripation = descripation;
+        //Data = data;
+        //PrevDate = prev_Date;
+        //NextDate = next_Date;
+    }
+
+    public Case2(Long id, String caseNo, String againstClient, String advocate, String stage, String fileNo,
+            String descripation, String data, Date prev_Date, Date next_Date, User user, Company company, City city,
+            Court court) {
+        super();
+        this.id = id;
+        CaseNo = caseNo;
+        //AgainstClient = againstClient;
+        //Advocate = advocate;
+        //Stage = stage;
+        //FileNo = fileNo;
+        //Descripation = descripation;
+        //Data = data;
+        //PrevDate = prev_Date;
+        //NextDate = next_Date;
+        //this.user = user;
+        //this.company = company;
+        //this.city = city;
+        //this.court = court;
+    }
+
+    /*public User getUser() {
 		return user;
 	}
 	public void setUser(User user) {
@@ -90,9 +88,9 @@ public class Case2 {
 	public void setCompany(Company company) {
 		this.company = company;
 	}
-	*/
-	
-	/*public City getCity() {
+     */
+
+ /*public City getCity() {
 		return city;
 	}
 	public void setCity(City city) {
@@ -105,19 +103,23 @@ public class Case2 {
 	public void setCourt(Court court) {
 		this.court = court;
 	}*/
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public String getCaseNo() {
-		return CaseNo;
-	}
-	public void setCaseNo(String caseNo) {
-		CaseNo = caseNo;
-	}
-	/*public String getAgainstClient() {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getCaseNo() {
+        return CaseNo;
+    }
+
+    public void setCaseNo(String caseNo) {
+        CaseNo = caseNo;
+    }
+
+    /*public String getAgainstClient() {
 		return AgainstClient;
 	}
 	public void setAgainstClient(String againstClient) {
@@ -147,7 +149,7 @@ public class Case2 {
 	public void setDescripation(String descripation) {
 		Descripation = descripation;
 	}*/
-	/*public String getData() {
+ /*public String getData() {
 		return Data;
 	}
 	public void setData(String data) {
@@ -174,10 +176,9 @@ public class Case2 {
 		NextDate = next_Date;
 	}*/
 
-	@Override
-	public String toString() {
-		return "Case [id=" + id + ", CaseNo=" + CaseNo + "]";
-	}
+    @Override
+    public String toString() {
+        return "Case [id=" + id + ", CaseNo=" + CaseNo + "]";
+    }
 
-	
 }

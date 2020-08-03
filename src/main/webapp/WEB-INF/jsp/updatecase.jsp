@@ -77,11 +77,13 @@ while(caselistIterator.hasNext())
 <%
 
 SimpleDateFormat format = new SimpleDateFormat("dd/MM/YYYY");
-String prevdate=format.format(caseobj.getPrevDate()); %>
+String prevdate="";%>
+//caseobj.getPrevDate()!=null?format.format(caseobj.getPrevDate()):"";
+
 <td><%=prevdate %> 
 </td>
-<td><input type="text" value=<%=format.format(caseobj.getNextDate()) %>  name="nextdate" id="nextdate"/>
-</td>
+<td><input type="text" value=<%=prevdate %>  name="nextdate" id="nextdate"/>
+</td>updatecase_jsp
 
 <td><%=caseobj.getCourt().getName() %>
 </td>

@@ -1,3 +1,10 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ page import="java.util.*" %>
+
+    <%@ page import="com.ibm.internal.assignment.entity.*" %>
+
 <!DOCTYPE html>
 <html class="">
 <head>
@@ -429,7 +436,7 @@
 }
 .s0_bg_footer {
 	position: absolute;
-	
+
 	right: 0;
 	bottom: 0;
 	left: 0;
@@ -1945,6 +1952,18 @@
 	position: absolute;
 	display: none;
 	z-index: 7
+}.btnsubmit{
+ background-color: black;
+    border: 0 none;
+    color: white;
+    width: 128px;
+}
+#Age
+{
+width: 169px!important;
+}
+#Gender{
+width: 169px !important;
 }
 </style>
 				<div class="testStyles" data-reactid=".0.0.o"></div>
@@ -1956,6 +1975,30 @@
 .font-ruler-content::after {
 	content: "@#$%%^&*~IAO"
 }
+.formlable{
+margin-right: 10px;
+float: left;
+width: 200px;
+font-size:18px;
+text-align: center;
+}
+textarea, input, select {
+    box-sizing: border-box;
+    font-family: Helvetica,Arial,sans-serif;
+margin: 8px !important;
+width: -moz-available;
+}
+
+table,tbody, tfoot, thead, tr, th, td{
+
+  margin: 0;
+  padding: 0;
+border:thin solid !important;
+  outline: 0;
+  vertical-align: baseline;
+  background: transparent; }
+
+
 </style>
 				</div>
 			</div>
@@ -2174,66 +2217,141 @@
 								style="position: absolute; top: 156px; width: 100%; left: 70px; height: 80%;"
 								data-reactid=".0.$SITE_ROOT.$desktop_siteRoot.$PAGES_CONTAINER.1.1.$SITE_PAGES.$mainPage.1">
 
-								<table cellspacing="10"
-									style="width: 100%; height: 10% ! important;" class="s10"
-									id="mainPage_Container_3">
-									<tbody>
-										<tr style="width: 0% ! important;">
+<%
+  List courts=(List)request.getAttribute("courts");
+  List companys=(List)request.getAttribute("companys");
+  List citys=(List)request.getAttribute("citys");
+  %>
+<%
+List<UserDetail> caselist=(List<UserDetail>)request.getAttribute("cases");
+//out.println(caselist.toString());
 
-											<td style="height: 100% ! important;"><a
-												href="./user"
-												style="text-align: center; width: 90%; display: block; height: 100% ! important;"
-												id="mainPage_SiteButton_4link" class="s11link"> <span
-													style="height: 100%; width: 100%; margin-top: 7%;"
-													id="mainPage_SiteButton_4label" class="s11label">Add
-														Case &nbsp;&nbsp;&nbsp;</span></a></td>
+%>
+<form action="SearchCase" method="post">
+<div style="border: thick solid;">
+<h1>Search Case</h1>
+<table border="1" style="border: medium !important;">
+<tbody style="border: medium !important;">
+<tr>
+<td><label class="formlable s2repeaterButton" >File No </label><input type="text" name="FileNo" id="FileNo"/></td>
+<td><label class="formlable s2repeaterButton" >Case No </label><input type="text" name="CaseNo" id="CaseNo"/></td>
+<td><label class="formlable s2repeaterButton">Case Title </label><input type="text" name="AgainstClient" id="AgainstClient"/></td>
+<td><label class="formlable s2repeaterButton">Previous  Date </label><input type="text" name="Prev_Date" id="Prev_Date"/></td>
 
-											<td style="height: 100%"><a
-												href="./updatecase"
-												style="text-align: center; width: 90%; height: 100%; display: block"
-												id="mainPage_SiteButton_4link" class="s11link"> <span
-													style="height: 100%; width: 100%; margin-top: 7%;"
-													id="mainPage_SiteButton_4label" class="s11label">Search
-														Case</span></a></td>
+</tr><tr>
+<td><label class="formlable s2repeaterButton">Next  Date </label><input type="text" name="Next_Date" id="Next_Date"/></td>
+<td>
+<label class="formlable s2repeaterButton">Court </label><select id="court" name="court"><option>Select Court</option> <%Iterator it=courts.iterator();
+  while(it.hasNext()){
+	  Object o=it.next();
+	  Court c=(Court)o;
+	  out.println("<option value="+c.getId()+">"+c.getName()+"</option>");
+  }%>
+</select></td>
+<td><label class="formlable s2repeaterButton">City </label><select id="city" name="city"><option>Select City</option> <% Iterator Cityiterator=citys.iterator();
+  while(Cityiterator.hasNext()){
+	  Object o=Cityiterator.next();
+	  City c=(City)o;
+	  out.println("<option value="+c.getId()+">"+c.getName()+"</option>");
+  }%>
+    </select></td>
+<td><label class="formlable s2repeaterButton">Company </label><select id="company" name="companyt"><option>Select Company</option>  <%Iterator Companyiterator=companys.iterator();
+  while(Companyiterator.hasNext()){
+	  Object o=Companyiterator.next();
+	  Company c=(Company)o;
+	  out.println("<option value="+c.getId()+">"+c.getName()+"</option>");
+  }%>
+</select></td>
+</tr>
+<tr><td colspan="4">
+<input type="Submit" class="btnsubmit" value="Search" style="width: 99%;"/>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<table border="1"  width="100%" style="width: 100%;margin-top: 40px;text-align: center;">
+<tr>
+<th>FileNo
+</th>
+<th>CaseNo
+</th>
+<th>Case Title</th>
+<th>Advocate
+</th>
+<th>Stage
+</th>
+<th>Description
+</th>
+<th>Previous Date</th>
+<th>Next Date
+</th>
 
-										</tr>
+<th>Court
+</th>
+<th>Company</th>
+<th>City</th>
+<th>Client name</th>
+<th>Mobile Number</th>
+<th>Address</th>
+</tr>
+<%
+if(caselist!=null){
+Iterator caselistIterator=caselist.iterator();
 
-									</tbody>
-								</table>
-								<table cellspacing="10"
-									style="width: 100%; height: 10% ! important; margin-top: 2%"
-									class="s10" id="mainPage_Container_3">
-									<tbody>
-										<tr style="width: 0% ! important;">
+while(caselistIterator.hasNext())
+{
+	UserDetail caseobj=(UserDetail)caselistIterator.next();
+%>
+<tr>
+<tr>
+<td><%=caseobj.getFileNo() %>
+</td>
+<td><%=caseobj.getCaseNo() %>
+</td>
+<td><%=caseobj.getAgainstClient() %></td>
+<td><%=caseobj.getAdvocate() %>
+</td>
+<td><%=caseobj.getStage() %>
+</td>
+<td><%=caseobj.getDescripation() %>
+</td>
+<%
 
-											<td style="height: 100% ! important;"><a
-												href="./caselist"
-												style="text-align: center; width: 90%; display: block; height: 100% ! important;"
-												id="mainPage_SiteButton_4link" class="s11link"> <span
-													style="height: 100%; width: 100%; margin-top: 7%"
-													id="mainPage_SiteButton_4label" class="s11label">Update
-														Case</span></a></td>
+SimpleDateFormat format = new SimpleDateFormat("dd/MM/YYYY");
+String prevdate="";
+//caseobj.getPrevDate()!=null ?format.format(caseobj.getPrevDate()): "";
 
-											<td style="height: 100%"><a
-												href="/caselist"
-												style="text-align: center; width: 90%; height: 100%; display: block"
-												id="mainPage_SiteButton_4link" class="s11link"> <span
-													style="height: 100%; margin-top: 7%; width: 100%"
-													id="mainPage_SiteButton_4label" class="s11label">Utility &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a></td>
+%>
+<td><%=prevdate%>
+</td>
+<%
+String nextdate="";
+//caseobj.getNextDate()!=null?format.format(caseobj.getNextDate()):"";
+%>
+<td><%=nextdate%>
+</td>
 
-										</tr>
+<td><%=caseobj.getCourt().getName() %>
+</td>
+<td><%=caseobj.getCompany().getName() %></td>
+<td><%=caseobj.getCity().getName() %></td>
+<td><%=caseobj.getUser().getName()+" "+caseobj.getUser().getLastName()%></td>
+<td><%=caseobj.getUser().getMobileNo()+"/"+caseobj.getUser().getLandlineNumber() %></td>
+<td><%=caseobj.getUser().getAddress()%></td>
+<tr>
+	<%
+}}
+%>
+	</table>
 
-									</tbody>
-								</table>
-							</div>
 
-						</div>
-					</div>
-					
-				</div>
-			</div>
-
-	<div class="s0_bg_footer" style="width: 100%!important;height: 10% " id="footer">
+</div><div class="s0_bg_footer" style="width: 100%!important;height: 10% " id="footer">
 					<table style="width:100%">
 					<tr style="width:100%">
 					<td style="width:100%;text-align: right;">
@@ -2244,8 +2362,7 @@
 					</table>
 					</div>
 
-		</div>	
+		</div>
 	</div>
 	</body>
 	</html>
-	

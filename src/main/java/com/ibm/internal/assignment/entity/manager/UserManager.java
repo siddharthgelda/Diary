@@ -7,23 +7,23 @@ import com.ibm.internal.assignment.entity.Court;
 import com.ibm.internal.assignment.entity.User;
 import com.ibm.internal.assignment.repository.CourtRepository;
 import com.ibm.internal.assignment.repository.UserRepository;
+import java.util.List;
 
 @Service
 public class UserManager {
-	@Autowired
-	private UserRepository userRepository;
 
-	public User save(User user)
-	{
-		return userRepository.save(user);
-	}
+    @Autowired
+    private UserRepository userRepository;
 
-	public User getCase(Long Id)
-	{
-		return userRepository.getOne(Id);
-	}
+    public User save(User user) {
+        return userRepository.save(user);
+    }
 
-
-
-
+    public User getCase(Long Id) {
+        return userRepository.getOne(Id);
+    }
+public  List<User> getAllUsers()
+{
+    return  userRepository.findAll();
+}
 }

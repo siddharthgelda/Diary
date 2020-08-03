@@ -10,21 +10,19 @@ import com.ibm.internal.assignment.repository.CityRepository;
 
 @Service
 public class CityManager {
-@Autowired
-private CityRepository cityRepository;
 
-public City save(City city)
-{
-	return cityRepository.save(city);
-}
+    @Autowired
+    private CityRepository cityRepository;
 
-public City getCity(Long cityId)
-{
-	return cityRepository.getOne(cityId);
-}
+    public City save(City city) {
+        return cityRepository.save(city);
+    }
 
-public List<City>  getAllCity()
-{
-	return cityRepository.findAll();
-}
+    public City getCity(Long cityId) {
+        return cityRepository.getOne(cityId);
+    }
+
+    public List<City> getAllCity() {
+        return cityRepository.findAll();
+    }
 }

@@ -12,23 +12,20 @@ import com.ibm.internal.assignment.repository.CourtRepository;
 
 @Service
 public class CourtManager {
-	@Autowired
-	private CourtRepository courtRepository;
 
-	public Court save(Court court)
-	{
-		return courtRepository.save(court);
-	}
+    @Autowired
+    private CourtRepository courtRepository;
 
-	public Court getCase(Long courtId)
-	{
-		return courtRepository.getOne(courtId);
-	}
+    public Court save(Court court) {
+        return courtRepository.save(court);
+    }
 
+    public Court getCase(Long courtId) {
+        return courtRepository.getOne(courtId);
+    }
 
-public List<Court>  getAllCourt()
-{
-	return courtRepository.findAll();
-}
+    public List<Court> getAllCourt() {
+        return courtRepository.findAll();
+    }
 
 }

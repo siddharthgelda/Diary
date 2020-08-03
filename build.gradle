@@ -1,57 +1,46 @@
+group 'Diary2Phase'
+version '1.0-SNAPSHOT'
 buildscript {
-	ext {
-		springBootVersion = '1.3.5.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
-	}
+    ext {
+        springBootVersion = '1.5.4.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
+
 apply plugin: 'java'
-apply plugin: 'eclipse-wtp'
-apply plugin: 'spring-boot' 
-apply plugin: 'war'
-war {
-	baseName = 'diary'
-	version = '0.0.1-SNAPSHOT'
-}
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
-configurations {
-	providedRuntime
-}
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	providedRuntime('org.apache.tomcat.embed:tomcat-embed-jasper')
-	compile('javax.servlet:jstl')
-	compile('org.springframework.boot:spring-boot-starter-jdbc')
-	compile('org.springframework.boot:spring-boot-starter-web')
-	runtime('com.h2database:h2')
-	runtime('mysql:mysql-connector-java')
-	compile("com.h2database:h2")
-	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
-	testCompile('org.springframework.boot:spring-boot-starter-test') 
-	compile fileTree(dir: 'libs', include: '*.jar')
-}
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-starter-data-rest')
+    compile('org.springframework.boot:spring-boot-starter-jdbc')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    runtime('com.h2database:h2')
+    runtime('mysql:mysql-connector-java')
 
-dependencyManagement {
-	imports { 
-		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Brixton.RELEASE" 
-	}
-}
+    compile group: 'org.hsqldb', name: 'hsqldb', version: '2.0.0'
+   
+    compile group: 'javax.servlet', name: 'jstl', version: '1.2'
 
+    compile("com.h2database:h2")
 
-eclipse {
-	classpath {
-		 containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
-		 containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
-	}
+    compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper'
+
+    compile group: 'org.eclipse.jdt.core.compiler', name: 'ecj', version: '4.6.1'
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 }

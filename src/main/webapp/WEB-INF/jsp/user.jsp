@@ -28,6 +28,7 @@
 
 </head>
 <body style="" class="">
+
 	<div id="SITE_CONTAINER">
 		<div class="noop" data-reactid=".0">
 			<div data-reactid=".0.0">
@@ -2198,7 +2199,6 @@ margin: 8px !important;
 							<div id="mainPageinlineContent" class="s8inlineContent"
 								style="position: absolute; top: 156px; width: 100%; left: 70px; height: 80%;"
 								data-reactid=".0.$SITE_ROOT.$desktop_siteRoot.$PAGES_CONTAINER.1.1.$SITE_PAGES.$mainPage.1">
-  
 <form id="info" method="post" >
   <ul>
     <li><label class="formlable s2repeaterButton"> First name</label> <input type="text" name="Name" id="Name"/></li>
