@@ -141,4 +141,13 @@ public class CaseController {
         return modelAndView;
 
     }
+
+    @RequestMapping(value = "caseEmail", method = RequestMethod.GET)
+    public ModelAndView casesEmails() {
+        ModelAndView modelAndView = new ModelAndView("welcome");
+        boolean status= casemanager.sendTodaysCaseEmail();
+        modelAndView.addObject("emailStatus",status);
+        return modelAndView;
+
+    }
 }

@@ -3,8 +3,8 @@ package com;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
+import com.helper.EmailHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -16,7 +16,6 @@ import com.ibm.internal.assignment.entity.Company;
 import com.ibm.internal.assignment.entity.Court;
 import com.ibm.internal.assignment.entity.User;
 import com.ibm.internal.assignment.entity.UserDetail;
-import com.ibm.internal.assignment.entity.manager.UserDetailManager;
 import com.ibm.internal.assignment.entity.manager.CityManager;
 import com.ibm.internal.assignment.entity.manager.CompanyManager;
 import com.ibm.internal.assignment.entity.manager.CourtManager;
@@ -24,7 +23,6 @@ import com.ibm.internal.assignment.entity.manager.UserManager;
 import com.ibm.internal.assignment.repository.UserdetailEntityManager;
 
 import com.ibm.internal.assignment.repository.UserDetailRepository;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -52,10 +50,12 @@ public class Application extends WebMvcConfigurerAdapter {
     @Autowired
     UserDetailRepository userdetailmanager;
 
+    @Autowired
+    EmailHelper emailHelper;
     public static void main(String[] args) {
         Application app = SpringApplication.run(Application.class, args).getBean(Application.class);
 //initalDB(app);
-
+        app.emailHelper.sendCaseListEmail("test");
     }
 
     private static void initalDB(  Application app) {

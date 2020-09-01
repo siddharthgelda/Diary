@@ -1,6 +1,6 @@
 package com.ibm.internal.assignment.repository;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import com.ibm.internal.assignment.entity.City;

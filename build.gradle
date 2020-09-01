@@ -45,4 +45,6 @@ dependencies {
     compile group: 'org.eclipse.jdt.core.compiler', name: 'ecj', version: '4.6.1'
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    //compile 'javax.mail:mail:1.4.3'
+            compile 'org.springframework.boot:spring-boot-starter-mail'
 }

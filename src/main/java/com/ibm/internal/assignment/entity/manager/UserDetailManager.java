@@ -3,10 +3,12 @@ package com.ibm.internal.assignment.entity.manager;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.time.Instant;
 import java.util.List;
 
+import com.helper.EmailHelper;
 import com.helper.Util;
+import org.hibernate.validator.constraints.Email;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,9 @@ import com.ibm.internal.assignment.repository.UserDetailRepository;
 
 @Service
 public class UserDetailManager {
+
+    @Autowired
+    EmailHelper emailHelper;
 
     @Autowired
     private UserDetailRepository caseRepository;
@@ -115,5 +120,15 @@ public class UserDetailManager {
         }
 
         return caseRepository.save(caseentity);
+    }
+
+    public boolean sendTodaysCaseEmail() {
+        Instant instant=Instant.now();
+        java.util.Date todayDate=Date.from(instant);
+        System.out.println(todayDate.toString());
+        List<UserDetail> list = caseRepository.findByNextDate(todayDate);
+        String mailData=Util.createExcelSheet(list);
+        emailHelper.sendCaseListEmail(mailData);
+        return  Boolean.TRUE;
     }
 }
