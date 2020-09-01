@@ -25,11 +25,11 @@ public class UserDetail {
     private City city;
     @ManyToOne
     private Court court;
-    String CaseNo;
+    String caseNo;
     String AgainstClient;
     String Advocate;
     String Stage;
-    String FileNo;
+    String fileNo;
     String Descripation;
     private String Data;
     private Date PrevDate;
@@ -45,11 +45,11 @@ public class UserDetail {
     }
 
     public String getCaseNo() {
-        return CaseNo;
+        return caseNo;
     }
 
     public void setCaseNo(String caseNo) {
-        CaseNo = caseNo;
+        this.caseNo = caseNo;
     }
 
     public String getAgainstClient() {
@@ -77,11 +77,11 @@ public class UserDetail {
     }
 
     public String getFileNo() {
-        return FileNo;
+        return fileNo;
     }
 
     public void setFileNo(String fileNo) {
-        FileNo = fileNo;
+        this.fileNo = fileNo;
     }
 
     public String getDescripation() {

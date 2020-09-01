@@ -20,7 +20,7 @@ public class CompanyManager {
         return companyRepository.save(company);
     }
 
-    public Company getCase(Long companyId) {
+    public Company getCompanyById(Long companyId) {
         return companyRepository.getOne(companyId);
     }
 

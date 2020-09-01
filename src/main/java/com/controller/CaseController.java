@@ -1,7 +1,9 @@
 package com.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.services.UpdateCaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +18,8 @@ import com.ibm.internal.assignment.entity.manager.CityManager;
 import com.ibm.internal.assignment.entity.manager.CompanyManager;
 import com.ibm.internal.assignment.entity.manager.CourtManager;
 import com.spec.CaseSpec;
+
+import java.text.ParseException;
 
 @Controller
 @RequestMapping("/")
@@ -33,6 +37,9 @@ public class CaseController {
 
     @Autowired
     UserDetailManager casemanager;
+
+    @Autowired
+    UpdateCaseService updateCaseService;
 
     @RequestMapping(value = "case", method = RequestMethod.GET)
     public ModelAndView userForm() {
@@ -68,10 +75,12 @@ public class CaseController {
     }
 
     @RequestMapping(value = "updatecase", method = RequestMethod.GET)
-    public ModelAndView GetCasesForUpdate() {
-
+    public ModelAndView GetCasesForUpdate(HttpServletRequest request) throws ParseException {
         ModelAndView modelAndView = new ModelAndView("updatecase");
-        java.util.List cases = casemanager.getAllCase();
+        java.util.List cases= updateCaseService.getCases(request,modelAndView);
+
+       // java.util.List cases =
+        // .getAllCase();
         modelAndView.addObject("citys", citymanager.getAllCity());
         modelAndView.addObject("companys", companymanager.getAllCompany());
         modelAndView.addObject("courts", courtmanager.getAllCourt());

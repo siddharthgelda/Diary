@@ -13,17 +13,13 @@
 <!-- DATA -->
 <link rel="stylesheet" href="/static/css/viewer.css">
 
-<link id="font_googleFonts" href="/static/css/css.css" rel="stylesheet">
-<link id="font_latin-ext" href="/static/css/latin-ext.css"
+<link id="font_googleFonts" href="/css/css.css" rel="stylesheet">
+<link id="font_latin-ext" href="/css/latin-ext.css"
 	rel="stylesheet">
-<link id="font_cyrillic" href="/static/css/cyrillic.css"
+<link id="font_cyrillic" href="/css/cyrillic.css"
 	rel="stylesheet">
-<link id="font_japanese" href="/static/css/japanese.css"
-	rel="stylesheet">
-<link id="font_korean" href="/static/css/korean.css" rel="stylesheet">
-<link id="font_arabic" href="/static/css/arabic.css" rel="stylesheet">
 <link id="font_hebrew" href="/static/css/hebrew.css" rel="stylesheet">
-<link id="font_latin" href="/static/css/latin.css" rel="stylesheet">
+<link id="font_latin" href="/css/latin.css" rel="stylesheet">
 
 
 </head>

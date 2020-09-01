@@ -1,3 +1,4 @@
+/*
 package com.ibm.internal.assignment.config;
 
 import org.springframework.context.annotation.Bean;
@@ -27,3 +28,4 @@ public class ApplicationConfigurerAdapter extends WebMvcConfigurerAdapter {
     }
 
 }
+*/

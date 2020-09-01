@@ -24,11 +24,15 @@ import com.ibm.internal.assignment.entity.manager.UserManager;
 import com.ibm.internal.assignment.repository.UserdetailEntityManager;
 
 import com.ibm.internal.assignment.repository.UserDetailRepository;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @ComponentScan("com")
 @SpringBootApplication
 @EnableAutoConfiguration
-public class Application {
+
+public class Application extends WebMvcConfigurerAdapter {
 
     @Autowired
     CityManager citymanager;
@@ -50,6 +54,11 @@ public class Application {
 
     public static void main(String[] args) {
         Application app = SpringApplication.run(Application.class, args).getBean(Application.class);
+//initalDB(app);
+
+    }
+
+    private static void initalDB(  Application app) {
 
         City city = new City();
         city.setName("Ratlam");
@@ -87,7 +96,7 @@ public class Application {
 
         UserDetail ud = new UserDetail();
         ud.setAgainstClient("siddu");
-      //  System.out.println(app.userdetailmanager.save(ud));
+        //  System.out.println(app.userdetailmanager.save(ud));
         //System.out.println(app.casemanager.save(c).toString());
         System.out.println("case added");
         //System.out.println(app.caseentitymanager.GetFilterResult().get(0).getId());
@@ -103,8 +112,11 @@ public class Application {
         Calendar cal = Calendar.getInstance();
         cal.setTimeInMillis(parsed.getTime());
         java.sql.Date date = new java.sql.Date(cal.getTimeInMillis());
-        System.out.println(app.userdetailmanager.findBynextDate(date).get(0).getId());
-
+        System.out.println(app.userdetailmanager.findByNextDate(date).get(0).getId());
     }
 
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/*");
+    }
 }

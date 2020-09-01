@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
+import com.helper.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -101,10 +102,11 @@ public class UserDetailManager {
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         java.util.Date parsed = null;
         try {
-            parsed = format.parse(nextdate);
-            Calendar cal = Calendar.getInstance();
+           // parsed = format.parse(nextdate);
+            java.sql.Date date=  Util.getSqlDate(nextdate);
+            /*Calendar cal = Calendar.getInstance();
             cal.setTimeInMillis(parsed.getTime());
-            java.sql.Date date = new java.sql.Date(cal.getTimeInMillis());
+            java.sql.Date date = new java.sql.Date(cal.getTimeInMillis());*/
             caseentity.setNextDate(date);
             caseentity.setStage(stage);
             System.out.println("sql date=" + date);
