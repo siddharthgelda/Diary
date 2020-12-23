@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<%@page import="com.ibm.internal.assignment.entity.City"%>
-<%@page import="com.ibm.internal.assignment.entity.Company"%>
-<%@page import="com.ibm.internal.assignment.entity.Court"%>
+<%@page import="com.entity.City"%>
+<%@page import="com.entity.Company"%>
+<%@page import="com.entity.Court"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <html class="">

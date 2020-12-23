@@ -1,7 +1,7 @@
 package com.helper;
 
 import com.Constants;
-import com.ibm.internal.assignment.entity.UserDetail;
+import com.entity.UserDetail;
 
 import java.sql.Date;
 import java.text.ParseException;

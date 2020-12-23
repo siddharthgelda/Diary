@@ -1,15 +1,6 @@
 package com.spec;
 
-import java.sql.Date;
-
-import javax.persistence.ManyToOne;
-
 import org.springframework.stereotype.Component;
-
-import com.ibm.internal.assignment.entity.City;
-import com.ibm.internal.assignment.entity.Company;
-import com.ibm.internal.assignment.entity.Court;
-import com.ibm.internal.assignment.entity.User;
 
 @Component
 public class CaseSpec {

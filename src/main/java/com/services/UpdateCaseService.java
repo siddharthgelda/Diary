@@ -1,15 +1,15 @@
 package com.services;
 
 import com.helper.Util;
-import com.ibm.internal.assignment.entity.City;
-import com.ibm.internal.assignment.entity.Company;
-import com.ibm.internal.assignment.entity.Court;
-import com.ibm.internal.assignment.entity.UserDetail;
-import com.ibm.internal.assignment.entity.manager.CityManager;
-import com.ibm.internal.assignment.entity.manager.CompanyManager;
-import com.ibm.internal.assignment.entity.manager.CourtManager;
-import com.ibm.internal.assignment.entity.manager.UserDetailManager;
-import com.ibm.internal.assignment.repository.UserDetailRepository;
+import com.entity.City;
+import com.entity.Company;
+import com.entity.Court;
+import com.entity.UserDetail;
+import com.entity.manager.CityManager;
+import com.entity.manager.CompanyManager;
+import com.entity.manager.CourtManager;
+import com.entity.manager.UserDetailManager;
+import com.repository.UserDetailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;

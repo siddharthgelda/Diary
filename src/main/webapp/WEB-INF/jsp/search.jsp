@@ -2,9 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ page import="java.util.*" %>
-
-    <%@ page import="com.ibm.internal.assignment.entity.*" %>
-
+<%@ page import="com.entity.*" %>
 <!DOCTYPE html>
 <html class="">
 <head>

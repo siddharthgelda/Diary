@@ -6,17 +6,16 @@ import javax.servlet.http.HttpSession;
 import com.services.UpdateCaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ibm.internal.assignment.entity.User;
-import com.ibm.internal.assignment.entity.manager.UserDetailManager;
-import com.ibm.internal.assignment.entity.manager.CityManager;
-import com.ibm.internal.assignment.entity.manager.CompanyManager;
-import com.ibm.internal.assignment.entity.manager.CourtManager;
+import com.entity.User;
+import com.entity.manager.UserDetailManager;
+import com.entity.manager.CityManager;
+import com.entity.manager.CompanyManager;
+import com.entity.manager.CourtManager;
 import com.spec.CaseSpec;
 
 import java.text.ParseException;

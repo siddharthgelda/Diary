@@ -11,18 +11,18 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
-import com.ibm.internal.assignment.entity.City;
-import com.ibm.internal.assignment.entity.Company;
-import com.ibm.internal.assignment.entity.Court;
-import com.ibm.internal.assignment.entity.User;
-import com.ibm.internal.assignment.entity.UserDetail;
-import com.ibm.internal.assignment.entity.manager.CityManager;
-import com.ibm.internal.assignment.entity.manager.CompanyManager;
-import com.ibm.internal.assignment.entity.manager.CourtManager;
-import com.ibm.internal.assignment.entity.manager.UserManager;
-import com.ibm.internal.assignment.repository.UserdetailEntityManager;
+import com.entity.City;
+import com.entity.Company;
+import com.entity.Court;
+import com.entity.User;
+import com.entity.UserDetail;
+import com.entity.manager.CityManager;
+import com.entity.manager.CompanyManager;
+import com.entity.manager.CourtManager;
+import com.entity.manager.UserManager;
+import com.repository.UserdetailEntityManager;
 
-import com.ibm.internal.assignment.repository.UserDetailRepository;
+import com.repository.UserDetailRepository;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
