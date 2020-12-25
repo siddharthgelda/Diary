@@ -1,12 +1,11 @@
 package com.entity.manager;
 
-import java.util.List;
-
+import com.entity.City;
+import com.repository.CityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.entity.City;
-import com.repository.CityRepository;
+import java.util.List;
 
 @Service
 public class CityManager {

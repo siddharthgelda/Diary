@@ -1,13 +1,11 @@
 package com.entity.manager;
 
-import java.util.List;
-
+import com.entity.Company;
+import com.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.entity.Company;
-
-import com.repository.CompanyRepository;
+import java.util.List;
 
 @Service
 public class CompanyManager {

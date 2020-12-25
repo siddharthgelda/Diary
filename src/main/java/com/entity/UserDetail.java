@@ -1,19 +1,18 @@
 package com.entity;
 
+import javax.persistence.*;
 import java.sql.Date;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 @Entity
 @Table(name = "userdetail")
 public class UserDetail {
 
+    String caseNo;
+    String AgainstClient;
+    String Advocate;
+    String Stage;
+    String fileNo;
+    String Descripation;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,12 +24,6 @@ public class UserDetail {
     private City city;
     @ManyToOne
     private Court court;
-    String caseNo;
-    String AgainstClient;
-    String Advocate;
-    String Stage;
-    String fileNo;
-    String Descripation;
     private String Data;
     private Date PrevDate;
     @Column(name = "nextDate")

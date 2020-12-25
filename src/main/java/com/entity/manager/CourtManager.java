@@ -1,12 +1,11 @@
 package com.entity.manager;
 
-import java.util.List;
-
+import com.entity.Court;
+import com.repository.CourtRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.entity.Court;
-import com.repository.CourtRepository;
+import java.util.List;
 
 @Service
 public class CourtManager {

@@ -1,22 +1,16 @@
 package com.entity;
 
+import javax.persistence.*;
 import java.sql.Date;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
 @Table(name = "case")
 public class Case2 {
 
+    String CaseNo;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    String CaseNo;
     // String AgainstClient;
     // String Advocate;
     // String Stage; 
@@ -40,7 +34,7 @@ public class Case2 {
     }
 
     public Case2(Long id, String caseNo, String againstClient, String advocate, String stage, String fileNo,
-            String descripation, String data, Date prev_Date, Date next_Date) {
+                 String descripation, String data, Date prev_Date, Date next_Date) {
         super();
         this.id = id;
         CaseNo = caseNo;
@@ -55,8 +49,8 @@ public class Case2 {
     }
 
     public Case2(Long id, String caseNo, String againstClient, String advocate, String stage, String fileNo,
-            String descripation, String data, Date prev_Date, Date next_Date, User user, Company company, City city,
-            Court court) {
+                 String descripation, String data, Date prev_Date, Date next_Date, User user, Company company, City city,
+                 Court court) {
         super();
         this.id = id;
         CaseNo = caseNo;
@@ -89,19 +83,19 @@ public class Case2 {
 	}
      */
 
- /*public City getCity() {
-		return city;
-	}
-	public void setCity(City city) {
-		this.city = city;
-	}
-	
-	public Court getCourt() {
-		return court;
-	}
-	public void setCourt(Court court) {
-		this.court = court;
-	}*/
+    /*public City getCity() {
+           return city;
+       }
+       public void setCity(City city) {
+           this.city = city;
+       }
+
+       public Court getCourt() {
+           return court;
+       }
+       public void setCourt(Court court) {
+           this.court = court;
+       }*/
     public Long getId() {
         return id;
     }

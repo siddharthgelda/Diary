@@ -15,19 +15,23 @@ public class Util {
 
         return parsed;
     }
+    public static java.util.Date getDate(String searchDateStr) throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+        return format.parse(searchDateStr);
+            }
+
     private static java.sql.Date convert(java.util.Date uDate) {
 
         java.sql.Date sDate = new java.sql.Date(uDate.getTime());
-
 
 
         return sDate;
     }
 
     public static String createExcelSheet(List<UserDetail> list) {
-        StringBuffer data=new StringBuffer();
+        StringBuffer data = new StringBuffer();
         data.append(Constants.CASE_LIST_HEADERS);
-        list.stream().forEach(caseData->{
+        list.stream().forEach(caseData -> {
             data.append(System.lineSeparator());
             data.append(caseData.getFileNo());
             data.append(Constants.COMMOA);

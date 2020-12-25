@@ -1,9 +1,12 @@
 package com.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
+import com.entity.User;
+import com.entity.manager.CityManager;
+import com.entity.manager.CompanyManager;
+import com.entity.manager.CourtManager;
+import com.entity.manager.UserDetailManager;
 import com.services.UpdateCaseService;
+import com.spec.CaseSpec;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,13 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.entity.User;
-import com.entity.manager.UserDetailManager;
-import com.entity.manager.CityManager;
-import com.entity.manager.CompanyManager;
-import com.entity.manager.CourtManager;
-import com.spec.CaseSpec;
-
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.text.ParseException;
 
 @Controller
@@ -76,9 +74,9 @@ public class CaseController {
     @RequestMapping(value = "updatecase", method = RequestMethod.GET)
     public ModelAndView GetCasesForUpdate(HttpServletRequest request) throws ParseException {
         ModelAndView modelAndView = new ModelAndView("updatecase");
-        java.util.List cases= updateCaseService.getCases(request,modelAndView);
+        java.util.List cases = updateCaseService.getCases(request, modelAndView);
 
-       // java.util.List cases =
+        // java.util.List cases =
         // .getAllCase();
         modelAndView.addObject("citys", citymanager.getAllCity());
         modelAndView.addObject("companys", companymanager.getAllCompany());
@@ -144,8 +142,8 @@ public class CaseController {
     @RequestMapping(value = "caseEmail", method = RequestMethod.GET)
     public ModelAndView casesEmails() {
         ModelAndView modelAndView = new ModelAndView("welcome");
-        boolean status= casemanager.sendTodaysCaseEmail();
-        modelAndView.addObject("emailStatus",status);
+        boolean status = casemanager.sendTodaysCaseEmail();
+        modelAndView.addObject("emailStatus", status);
         return modelAndView;
 
     }

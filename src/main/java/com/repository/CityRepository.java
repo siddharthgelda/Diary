@@ -1,8 +1,7 @@
 package com.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import com.entity.City;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CityRepository extends JpaRepository<City, Long> {
 

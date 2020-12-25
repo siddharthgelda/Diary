@@ -1,35 +1,31 @@
 package com;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
+import com.entity.*;
+import com.entity.manager.CityManager;
+import com.entity.manager.CompanyManager;
+import com.entity.manager.CourtManager;
+import com.entity.manager.UserManager;
 import com.helper.EmailHelper;
+import com.repository.UserDetailRepository;
+import com.repository.UserdetailEntityManager;
+import com.scheduler.DataScheduler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
-
-import com.entity.City;
-import com.entity.Company;
-import com.entity.Court;
-import com.entity.User;
-import com.entity.UserDetail;
-import com.entity.manager.CityManager;
-import com.entity.manager.CompanyManager;
-import com.entity.manager.CourtManager;
-import com.entity.manager.UserManager;
-import com.repository.UserdetailEntityManager;
-
-import com.repository.UserDetailRepository;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 @ComponentScan("com")
 @SpringBootApplication
 @EnableAutoConfiguration
-
+@EnableAsync
 public class Application extends WebMvcConfigurerAdapter {
 
     @Autowired
@@ -52,13 +48,17 @@ public class Application extends WebMvcConfigurerAdapter {
 
     @Autowired
     EmailHelper emailHelper;
-    public static void main(String[] args) {
+    @Autowired
+    DataScheduler dataScheduler;
+
+    public static void main(String[] args) throws ParseException {
         Application app = SpringApplication.run(Application.class, args).getBean(Application.class);
 //initalDB(app);
-        app.emailHelper.sendCaseListEmail("test");
-    }
+     //   app.emailHelper.sendCaseListEmail("test");
+        app.dataScheduler.dataBackup();
+      }
 
-    private static void initalDB(  Application app) {
+    private static void initalDB(Application app) {
 
         City city = new City();
         city.setName("Ratlam");

@@ -1,15 +1,13 @@
 package com.repository;
 
-import java.util.List;
+import com.entity.UserDetail;
+import com.spec.CaseSpec;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-
-import org.springframework.stereotype.Service;
-
-import com.entity.UserDetail;
-import com.spec.CaseSpec;
+import java.util.List;
 
 @Service
 public class UserdetailEntityManager {

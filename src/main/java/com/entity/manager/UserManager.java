@@ -1,10 +1,10 @@
 package com.entity.manager;
 
+import com.entity.User;
+import com.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.entity.User;
-import com.repository.UserRepository;
 import java.util.List;
 
 @Service
@@ -20,8 +20,8 @@ public class UserManager {
     public User getCase(Long Id) {
         return userRepository.getOne(Id);
     }
-public  List<User> getAllUsers()
-{
-    return  userRepository.findAll();
-}
+
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
 }

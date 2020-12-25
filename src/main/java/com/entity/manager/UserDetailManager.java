@@ -1,29 +1,18 @@
 package com.entity.manager;
 
+import com.entity.*;
+import com.helper.EmailHelper;
+import com.helper.Util;
+import com.repository.*;
+import com.spec.CaseSpec;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.List;
-
-import com.helper.EmailHelper;
-import com.helper.Util;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.spec.CaseSpec;
-
-import com.entity.City;
-import com.entity.Company;
-import com.entity.Court;
-import com.entity.User;
-import com.entity.UserDetail;
-import com.repository.UserdetailEntityManager;
-
-import com.repository.CityRepository;
-import com.repository.CompanyRepository;
-import com.repository.CourtRepository;
-import com.repository.UserDetailRepository;
 
 @Service
 public class UserDetailManager {
@@ -106,8 +95,8 @@ public class UserDetailManager {
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         java.util.Date parsed = null;
         try {
-           // parsed = format.parse(nextdate);
-            java.sql.Date date=  Util.getSqlDate(nextdate);
+            // parsed = format.parse(nextdate);
+            java.sql.Date date = Util.getSqlDate(nextdate);
             /*Calendar cal = Calendar.getInstance();
             cal.setTimeInMillis(parsed.getTime());
             java.sql.Date date = new java.sql.Date(cal.getTimeInMillis());*/
@@ -122,12 +111,12 @@ public class UserDetailManager {
     }
 
     public boolean sendTodaysCaseEmail() {
-        Instant instant=Instant.now();
-        java.util.Date todayDate=Date.from(instant);
+        Instant instant = Instant.now();
+        java.util.Date todayDate = Date.from(instant);
         System.out.println(todayDate.toString());
         List<UserDetail> list = caseRepository.findByNextDate(todayDate);
-        String mailData=Util.createExcelSheet(list);
+        String mailData = Util.createExcelSheet(list);
         emailHelper.sendCaseListEmail(mailData);
-        return  Boolean.TRUE;
+        return Boolean.TRUE;
     }
 }
