@@ -36,7 +36,9 @@
                <style type="text/css" data-reactid=".0.0.$theme_fonts">
                 .ul-no-bult{
                						  list-style-type: none;
-               						  }
+               						  display: grid;
+                                        justify-content: center;
+                                        }
                   .font_0 {
                   font: normal normal normal 32px/1.1em Signika, sans-serif;
                   color: #FFFFFF;
@@ -1698,16 +1700,14 @@
                      .font-ruler-content::after {
                      content: "@#$%%^&*~IAO"
                      }
-                     .formlable{
-                     margin-right: 10px;
-                     float: left;
-                     width: 200px;
-                     font-size:18px;
+                     .formlable{    margin-right: 50px;
+                                    float: left;
+                                    width: 450px;
+                                    font-size: 18px;
                      }
                      .headertitle{
                      font-size: large;
-                     margin-bottom: 20px;
-                     margin-left: 92px;
+                     text-align: center;
                      }
                      textarea, input, select {
                      box-sizing: border-box;
@@ -1834,15 +1834,24 @@
                            <form id="case" method="POST" >
                               <H3 class="headertitle"> Add Your Case Detail</H3>
                               <ul class="ul-no-bult">
-                                 <li><label class="formlable s2repeaterButton"> FileNo</label> <input type="text" name="FileNo" id="FileNo"/></li>
-                                 <li><label class="formlable s2repeaterButton"> CaseNo</label> <input type="text" name="CaseNo" id="CaseNo"/></li>
-                                 <li><label class="formlable s2repeaterButton"> Case Title</label> <input type="text" name="AgainstClient" id="AgainstClient"/></li>
-                                 <li><label class="formlable s2repeaterButton"> Advocate</label> <input type="text" name="Advocate" id="Advocate" /></li>
-                                 <li><label class="formlable s2repeaterButton"> Stage</label> <input type="text" name="Stage" id="Stage"/></li>
-                                 <li><label class="formlable s2repeaterButton"> Description</label> <input type="textarea" rows="4" cols="50" name="Descripation" id="Descripation"/></li>
-                                 <li><label class="formlable s2repeaterButton"> Next Date</label> <input type="text" placeholder="dd/MM/YYYY" name="Next_Date" id="Next_Date"/></li>
-                                 <li><label class="formlable s2repeaterButton"> Previous Date</label> <input type="text" placeholder="dd/MM/YYYY" name="Prev_Date" id="Prev_Date"/></li>
-                                 <li><label class="formlable s2repeaterButton"> Court</label> <select id="court" name="court">
+                                 <li><label class="formlable s2repeaterButton"> FileNo</label>
+                                  <input type="text" name="FileNo" id="FileNo" style="width:423px"/></li>
+                                 <li><label class="formlable s2repeaterButton"> CaseNo</label>
+                                 <input type="text" name="CaseNo" id="CaseNo" style="width:423px"/></li>
+                                 <li><label class="formlable s2repeaterButton"> Case Title</label>
+                                  <input type="text" name="AgainstClient" id="AgainstClient" style="width:423px"/></li>
+                                 <li><label class="formlable s2repeaterButton"> Advocate</label>
+                                  <input type="text" name="Advocate" id="Advocate" style="width:423px" /></li>
+                                 <li><label class="formlable s2repeaterButton"> Stage</label>
+                                 <input type="text" name="Stage" id="Stage" style="width:423px" /></li>
+                                 <li><label class="formlable s2repeaterButton"> Description</label>
+                                  <input style="width:423px" type="textarea" rows="4" cols="50" name="Descripation" id="Descripation"/></li>
+                                 <li><label class="formlable s2repeaterButton"> Next Date</label>
+                                 <input style="width:423px" type="text" placeholder="dd/MM/YYYY" name="Next_Date" id="Next_Date"/></li>
+                                 <li><label class="formlable s2repeaterButton"> Previous Date</label>
+                                  <input style="width:423px" type="text" placeholder="dd/MM/YYYY" name="Prev_Date" id="Prev_Date"/></li>
+                                 <li><label class="formlable s2repeaterButton"> Court</label>
+                                  <select style="width:423px" id="court" name="court">
                                     <%
                                        Iterator it=courts.iterator();
                                        while(it.hasNext()){
@@ -1852,7 +1861,8 @@
                                        }%>
                                     </select>
                                  </li>
-                                 <li><label class="formlable s2repeaterButton"> company</label> <select id="company" name="company">
+                                 <li><label class="formlable s2repeaterButton"> company</label>
+                                  <select style="width:423px" id="company" name="company">
                                     <%Iterator Companyiterator=companys.iterator();
                                        while(Companyiterator.hasNext()){
                                        Object o=Companyiterator.next();
