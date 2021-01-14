@@ -7,6 +7,7 @@ import com.repository.*;
 import com.spec.CaseSpec;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.sql.Date;
 import java.text.ParseException;
@@ -33,43 +34,49 @@ public class UserDetailManager {
     @Autowired
     private UserdetailEntityManager caseentitymanager;
 
-    public UserDetail save(CaseSpec cityspec, User user) {
+    public UserDetail save(CaseSpec caseSpec, User user) throws ParseException {
         UserDetail newcase = new UserDetail();
-        newcase.setAdvocate(cityspec.getAdvocate());
-        newcase.setAgainstClient(cityspec.getAgainstClient());
-        newcase.setCaseNo(cityspec.getCaseNo());
-        newcase.setDescripation(cityspec.getDescripation());
-        newcase.setFileNo(cityspec.getFileNo());
-        newcase.setStage(cityspec.getStage());
-
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/YYYY");
+        newcase.setAdvocate(caseSpec.getAdvocate());
+        newcase.setAgainstClient(caseSpec.getAgainstClient());
+        newcase.setCaseNo(caseSpec.getCaseNo());
+        newcase.setDescripation(caseSpec.getDescripation());
+        newcase.setFileNo(caseSpec.getFileNo());
+        newcase.setStage(caseSpec.getStage());
+        String formate="dd/MM/yyyy";
+        if(!StringUtils.isEmpty(caseSpec.getRecivedDate()))
+        {
+            newcase.setRecivedDate(Util.convert(Util.getDate(caseSpec.getRecivedDate(),formate)));
+        }
+        if(!StringUtils.isEmpty(caseSpec.getDateOfLoss())) {
+            newcase.setDateOfLoss(Util.convert(Util.getDate(caseSpec.getDateOfLoss(), formate)));
+        }
+        if(!StringUtils.isEmpty(caseSpec.getDeposietDate())) {
+            newcase.setDeposietDate(Util.convert(Util.getDate(caseSpec.getDeposietDate(), formate)));
+        }
+        newcase.setVehicleNo(caseSpec.getVehicleNo());
+        newcase.setSubAdvocate(caseSpec.getSubAdvocate());
+        newcase.setPolicyNo(caseSpec.getPolicyNo());
+        newcase.setDLNo(caseSpec.getDLNo());
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
         java.util.Date parsed = null;
-        try {
-            parsed = format.parse(cityspec.getNext_Date());
+        if(!StringUtils.isEmpty(caseSpec.getNext_Date())) {
+            parsed = format.parse(caseSpec.getNext_Date());
 
             newcase.setNextDate(new Date(parsed.getTime()));
-
-        } catch (ParseException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         }
-        try {
-            parsed = format.parse(cityspec.getPrev_Date());
+        if(!StringUtils.isEmpty(caseSpec.getPrev_Date())) {
+            parsed = format.parse(caseSpec.getPrev_Date());
             newcase.setPrevDate(new Date(parsed.getTime()));
-        } catch (ParseException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         }
-
-        City c = cityrepo.findOne(cityspec.getCity());
+        City c = cityrepo.findOne(caseSpec.getCity());
 
         newcase.setCity(c);
 
-        Company company = companyrepo.findOne(cityspec.getCompany());
+        Company company = companyrepo.findOne(caseSpec.getCompany());
         newcase.setCompany(company);
 
-        Court court = courtrepo.findOne(cityspec.getCourt());
+        Court court = courtrepo.findOne(caseSpec.getCourt());
         newcase.setCourt(court);
         newcase.setUser(user);
         UserDetail case_persistant = caseRepository.save(newcase);
@@ -77,14 +84,12 @@ public class UserDetailManager {
         return case_persistant;
     }
 
-    public UserDetail getCase(Long caseId) {
-        return caseRepository.getOne(caseId);
-    }
-
     public List<UserDetail> getAllCase() {
         return caseRepository.findAll();
     }
-
+    public UserDetail getCase(Long id ) {
+        return caseRepository.findOne(id);
+    }
     public List<UserDetail> getAllCaseBySearch(CaseSpec spec) {
         return caseentitymanager.GetFilterResult(spec);
         //return caseRepository.findAll(spec);

@@ -20,7 +20,11 @@ public class Util {
         return format.parse(searchDateStr);
             }
 
-    private static java.sql.Date convert(java.util.Date uDate) {
+    public static java.util.Date getDate(String searchDateStr,String formate) throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat(formate);
+        return format.parse(searchDateStr);
+    }
+    public  static java.sql.Date convert(java.util.Date uDate) {
 
         java.sql.Date sDate = new java.sql.Date(uDate.getTime());
 

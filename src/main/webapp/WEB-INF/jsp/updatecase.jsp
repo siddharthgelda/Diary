@@ -134,7 +134,7 @@
 							 </div>
 						  </div>
             <div
-               style="left: 0px; width: 980px; position: absolute; top: 0px; height: 1142px;margin-top:110px"
+               style="left: 0px; width: 980px; position: absolute; top: 0px; height: 100%;margin-top:110px"
                class="s7" id="SITE_PAGES"
                data-reactid=".0.$SITE_ROOT.$desktop_siteRoot.$PAGES_CONTAINER.1.1.$SITE_PAGES">
                <%
@@ -271,7 +271,7 @@
                <form action="updatecase" method="post">
                   <tr>
                      <td>
-                        <%=caseobj.getFileNo()%>
+                     <a target="_blank" href="/caseDetail?id=<%out.println(caseobj.getId());%>">   <%=caseobj.getFileNo()%></a>
                      </td>
                      <td>
                         <%=caseobj.getCaseNo()%>
@@ -309,7 +309,7 @@
                         <%=caseobj.getUser().getName()+" "+caseobj.getUser().getLastName()%>
                      </td>
                      <td>
-                        <%=caseobj.getUser().getMobileNo()+"/"+caseobj.getUser().getLandlineNumber()%>
+                        <%= caseobj.getUser().getMobileNo()+"/"+caseobj.getUser().getLandlineNumber() %>
                      </td>
                      <td>
                         <%=caseobj.getUser().getAddress()%>

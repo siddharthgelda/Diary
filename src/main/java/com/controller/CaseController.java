@@ -1,6 +1,7 @@
 package com.controller;
 
 import com.entity.User;
+import com.entity.UserDetail;
 import com.entity.manager.CityManager;
 import com.entity.manager.CompanyManager;
 import com.entity.manager.CourtManager;
@@ -17,6 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/")
@@ -46,9 +49,22 @@ public class CaseController {
         modelAndView.addObject("courts", courtmanager.getAllCourt());
         return modelAndView;
     }
+    @RequestMapping(value = "caseDetail", method = RequestMethod.GET)
+    public ModelAndView caseDetail(@RequestParam(name = "id") String id) {
+        System.out.println("========================="+id+"================");
+       UserDetail userDetail= casemanager.getCase(Long.parseLong(id));
+        List<UserDetail> userDetails=new ArrayList<>();
+        userDetails.add(userDetail);
+        ModelAndView modelAndView = new ModelAndView("caseDetail");
+        modelAndView.addObject("citys", citymanager.getAllCity());
+        modelAndView.addObject("companys", companymanager.getAllCompany());
+        modelAndView.addObject("courts", courtmanager.getAllCourt());
+        modelAndView.addObject("case", userDetails);
+        return modelAndView;
+    }
 
     @RequestMapping(value = "case", method = RequestMethod.POST)
-    public String caseFormSubmit(CaseSpec caseobj, HttpSession session) {
+    public String caseFormSubmit(CaseSpec caseobj, HttpSession session) throws ParseException {
         User user = (User) session.getAttribute("Client");
         System.out.println(caseobj.toString());
         casemanager.save(caseobj, user);

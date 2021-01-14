@@ -15,11 +15,75 @@ public class CaseSpec {
     private String Prev_Date;
     private String Next_Date;
 
+    private String recivedDate;
+    private String dateOfLoss;
+    private String vehicleNo;
+    private String subAdvocate;
+    private String policyNo;
+    private String DLNo;
+    private String deposietDate;
+
     private Long company;
 
     private Long city;
 
     private Long court;
+
+    public String getRecivedDate() {
+        return recivedDate;
+    }
+
+    public void setRecivedDate(String recivedDate) {
+        this.recivedDate = recivedDate;
+    }
+
+    public String getDateOfLoss() {
+        return dateOfLoss;
+    }
+
+    public void setDateOfLoss(String dateOfLoss) {
+        this.dateOfLoss = dateOfLoss;
+    }
+
+    public String getVehicleNo() {
+        return vehicleNo;
+    }
+
+    public void setVehicleNo(String vehicleNo) {
+        this.vehicleNo = vehicleNo;
+    }
+
+    public String getSubAdvocate() {
+        return subAdvocate;
+    }
+
+    public void setSubAdvocate(String subAdvocate) {
+        this.subAdvocate = subAdvocate;
+    }
+
+    public String getPolicyNo() {
+        return policyNo;
+    }
+
+    public void setPolicyNo(String policyNo) {
+        this.policyNo = policyNo;
+    }
+
+    public String getDLNo() {
+        return DLNo;
+    }
+
+    public void setDLNo(String DLNo) {
+        this.DLNo = DLNo;
+    }
+
+    public String getDeposietDate() {
+        return deposietDate;
+    }
+
+    public void setDeposietDate(String deposietDate) {
+        this.deposietDate = deposietDate;
+    }
 
     public String getCaseNo() {
         return CaseNo;

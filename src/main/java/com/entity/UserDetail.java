@@ -28,6 +28,72 @@ public class UserDetail {
     private Date PrevDate;
     @Column(name = "nextDate")
     private Date NextDate;
+    private Date recivedDate;;
+    private Date dateOfLoss;
+    private String vehicleNo;
+    private String subAdvocate;
+    private String policyNo;
+
+    public Date getRecivedDate() {
+        return recivedDate;
+    }
+
+    public void setRecivedDate(Date recivedDate) {
+        this.recivedDate = recivedDate;
+    }
+
+    public Date getDateOfLoss() {
+        return dateOfLoss;
+    }
+
+    public void setDateOfLoss(Date dateOfLoss) {
+        this.dateOfLoss = dateOfLoss;
+    }
+
+    public String getVehicleNo() {
+        return vehicleNo;
+    }
+
+    public void setVehicleNo(String vehicleNo) {
+        this.vehicleNo = vehicleNo;
+    }
+
+    public String getSubAdvocate() {
+        return subAdvocate;
+    }
+
+    public void setSubAdvocate(String subAdvocate) {
+        this.subAdvocate = subAdvocate;
+    }
+
+    public String getPolicyNo() {
+        return policyNo;
+    }
+
+    public void setPolicyNo(String policyNo) {
+        this.policyNo = policyNo;
+    }
+
+    public String getDLNo() {
+        return DLNo;
+    }
+
+    public void setDLNo(String DLNo) {
+        this.DLNo = DLNo;
+    }
+
+    public Date getDeposietDate() {
+        return deposietDate;
+    }
+
+    public void setDeposietDate(Date deposietDate) {
+        this.deposietDate = deposietDate;
+    }
+
+    private String DLNo;
+    private Date  deposietDate;
+
+
 
     public Long getId() {
         return id;

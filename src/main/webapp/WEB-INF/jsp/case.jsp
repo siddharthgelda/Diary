@@ -16,18 +16,14 @@
          content="width=980, user-scalable=yes">
       <meta name="fragment" content="!">
       <!-- DATA -->
-      <link rel="stylesheet" href="/static/css/viewer.css">
-      <link id="font_googleFonts" href="/static/css/css.css" rel="stylesheet">
-      <link id="font_latin-ext" href="/static/css/latin-ext.css"
-         rel="stylesheet">
-      <link id="font_cyrillic" href="/static/css/cyrillic.css"
-         rel="stylesheet">
-      <link id="font_japanese" href="/static/css/japanese.css"
-         rel="stylesheet">
-      <link id="font_korean" href="/static/css/korean.css" rel="stylesheet">
-      <link id="font_arabic" href="/static/css/arabic.css" rel="stylesheet">
-      <link id="font_hebrew" href="/static/css/hebrew.css" rel="stylesheet">
-      <link id="font_latin" href="/static/css/latin.css" rel="stylesheet">
+
+      <link href=
+         'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css'
+         rel='stylesheet'>
+      <script src=
+         "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" ></script>
+      <script src=
+         "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" ></script>
    </head>
    <body style="" class="">
       <div id="SITE_CONTAINER">
@@ -1672,7 +1668,7 @@
                   background-color: black;
                   border: 0 none;
                   color: white;
-                  margin-left: -128px;
+                  margin-left: 40% !important;
                   margin-top: 53px !important;
                   width: 400px;
                   height: 45px
@@ -1847,9 +1843,35 @@
                                  <li><label class="formlable s2repeaterButton"> Description</label>
                                   <input style="width:423px" type="textarea" rows="4" cols="50" name="Descripation" id="Descripation"/></li>
                                  <li><label class="formlable s2repeaterButton"> Next Date</label>
-                                 <input style="width:423px" type="text" placeholder="dd/MM/YYYY" name="Next_Date" id="Next_Date"/></li>
+                                 <input style="width:423px" type="text" placeholder="dd/MM/YYYY" name="Next_Date" id="Next_Date"/>
+                                 <script>
+                                                                  $(document).ready(function() {
+
+                                                                      $(function() {
+                                                                          $( "#Next_Date" ).datepicker({
+                                                                            dateFormat: 'dd/mm/yy',
+                                                                           changeMonth: true,
+                                                                           changeYear: true
+                                                                          });
+                                                                      });
+                                                                  })
+                                                               </script>
+                                 </li>
                                  <li><label class="formlable s2repeaterButton"> Previous Date</label>
-                                  <input style="width:423px" type="text" placeholder="dd/MM/YYYY" name="Prev_Date" id="Prev_Date"/></li>
+                                  <input style="width:423px" type="text" placeholder="dd/MM/YYYY" name="Prev_Date" id="Prev_Date"/>
+                                   <script>
+                                                                                                    $(document).ready(function() {
+
+                                                                                                        $(function() {
+                                                                                                            $( "#Prev_Date" ).datepicker({
+                                                                                                             dateFormat: 'dd/mm/yy',
+                                                                                                             changeMonth: true,
+                                                                                                             changeYear: true
+                                                                                                            });
+                                                                                                        });
+                                                                                                    })
+                                   </script>
+                                  </li>
                                  <li><label class="formlable s2repeaterButton"> Court</label>
                                   <select style="width:423px" id="court" name="court">
                                     <%
@@ -1861,7 +1883,7 @@
                                        }%>
                                     </select>
                                  </li>
-                                 <li><label class="formlable s2repeaterButton"> company</label>
+                                 <li><label class="formlable s2repeaterButton"> Company</label>
                                   <select style="width:423px" id="company" name="company">
                                     <%Iterator Companyiterator=companys.iterator();
                                        while(Companyiterator.hasNext()){
@@ -1871,7 +1893,9 @@
                                        }%>
                                     </select>
                                  </li>
-                                 <li><label class="formlable s2repeaterButton">city</label> <select name="city" id="city">
+                                 <li>
+                                 <label class="formlable s2repeaterButton">City</label>
+                                  <select name="city" id="city">
                                     <%
                                        Iterator Cityiterator=citys.iterator();
                                        while(Cityiterator.hasNext()){
@@ -1880,7 +1904,71 @@
                                        out.println("<option value="+c.getId()+">"+c.getName()+"</option>");
                                        }%>
                                     </select>
-                                 <li >
+                                    </li>
+
+                                 <li>
+                                 <label class="formlable s2repeaterButton">Recived Date</label>
+                                <input type="text" name="recivedDate" id="recivedDate" style="width:423px" />
+                                    <script>
+                                                                                                     $(document).ready(function() {
+
+                                                                                                         $(function() {
+                                                                                                             $( "#recivedDate" ).datepicker({
+                                                                                                             dateFormat: 'dd/mm/yy',
+                                                                                                              changeMonth: true,
+                                                                                                              changeYear: true
+                                                                                                             });
+                                                                                                         });
+                                                                                                     })
+                                    </script>
+                                    </li>
+
+                               <li>
+                               <label class="formlable s2repeaterButton">Date Of Loss</label>
+                               <input type="text" name="dateOfLoss" id="dateOfLoss" style="width:423px" />
+                                    <script>
+                                                                                                     $(document).ready(function() {
+
+                                                                                                         $(function() {
+                                                                                                             $( "#dateOfLoss" ).datepicker({
+                                                                                                               dateFormat: 'dd/mm/yy',
+                                                                                                              changeMonth: true,
+                                                                                                              changeYear: true
+                                                                                                             });
+                                                                                                         });
+                                                                                                     })
+                                    </script>
+                                </li>
+                                <li><label class="formlable s2repeaterButton">Vehicle No</label>
+                                                               <input type="text" name="vehicleNo" id="vehicleNo" style="width:423px" />
+                                                                </li>
+                                  <li><label class="formlable s2repeaterButton">Sub Advocate</label>
+                                                               <input type="text" name="subAdvocate" id="subAdvocate" style="width:423px" />
+                                                               </li>
+                               <li><label class="formlable s2repeaterButton">Policy No</label>
+                               <input type="text" name="policyNo" id="policyNo" style="width:423px" />
+                                </li>
+                               <li>
+                               <label class="formlable s2repeaterButton">DL No</label>
+                               <input type="text" name="DLNo" id="DLNo" style="width:423px" />
+                                </li>
+                                <li>
+                                <label class="formlable s2repeaterButton">Deposiet Date</label>
+                                <input type="text" name="deposietDate" id="deposietDate" style="width:423px" />
+                                    <script>
+                                                                                                     $(document).ready(function() {
+
+                                                                                                         $(function() {
+                                                                                                             $( "#deposietDate" ).datepicker({
+                                                                                                               dateFormat: 'dd/mm/yy',
+                                                                                                              changeMonth: true,
+                                                                                                              changeYear: true
+                                                                                                             });
+                                                                                                         });
+                                                                                                     })
+                                    </script>
+                                 </li>
+                                 <li>
                                  <input type="submit" class="btnsubmit" value="submit" id="sbt" name="sbt"/></li>
                               </ul>
                            </form>
