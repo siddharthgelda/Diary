@@ -18,6 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Date;
 import java.text.ParseException;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.List;
 
 @Service
@@ -71,7 +73,13 @@ public class UpdateCaseService {
 
             return caseRepository.findByCaseNo(caseNo);
         }
-        return caseRepository.findAll();
+        Instant start = Instant.now();
+        List<UserDetail> userDetails= caseRepository.findAll();
+        Instant finish = Instant.now();
+
+        long timeElapsed = Duration.between(start, finish).toMillis();  //in millis
+        System.out.println("==============="+timeElapsed+"============");
+       return userDetails;
 
     }
 }

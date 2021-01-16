@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -156,10 +158,21 @@ public class CaseController {
     }
 
     @RequestMapping(value = "caseEmail", method = RequestMethod.GET)
-    public ModelAndView casesEmails() {
+    public ModelAndView casesEmails(HttpServletResponse response) throws IOException {
+        String headerKey = "Content-Disposition";
+        String csvFileName = "case list.csv";
+
+        response.setContentType("text/csv");
+        String headerValue = String.format("attachment; filename=\"%s\"",
+                csvFileName);
+        response.setHeader(headerKey, headerValue);
+
         ModelAndView modelAndView = new ModelAndView("welcome");
-        boolean status = casemanager.sendTodaysCaseEmail();
-        modelAndView.addObject("emailStatus", status);
+
+        String  data = casemanager.sendTodaysCaseEmail();
+        response.getWriter().println(data);
+        response.getWriter().close();
+        modelAndView.addObject("emailStatus", true);
         return modelAndView;
 
     }

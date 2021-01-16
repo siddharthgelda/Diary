@@ -1835,14 +1835,14 @@
                class="s7" id="SITE_PAGES"
                data-reactid=".0.$SITE_ROOT.$desktop_siteRoot.$PAGES_CONTAINER.1.1.$SITE_PAGES">
    <ul class="ul-no-bult">
-                             <li><label class="formlable s2repeaterButton"> First name</label> :<%= casedetail.getUser().getName()%></li>
-                            <li><label class="formlable s2repeaterButton" > Last name</label>:<%= casedetail.getUser().getLastName()%> </li>
-                            <li><label class="formlable s2repeaterButton"> E-mail address</label> :<%= casedetail.getUser().getEmail()%></li>
-                            <li><label class="formlable s2repeaterButton"> MobileNo</label> :<%= casedetail.getUser().getMobileNo()%></li>
-                            <li><label class="formlable s2repeaterButton"> Landline Number</label>:<%= casedetail.getUser().getLandlineNumber()%></li>
-                             <li><label class="formlable s2repeaterButton"> Address</label> :<%= casedetail.getUser().getAddress()%></li>
-                             <li><label class="formlable s2repeaterButton"> Age</label>:<%= casedetail.getUser().getAge()%></li>
-                             <li><label class="formlable s2repeaterButton">Gender</label>:<%= casedetail.getUser().getGender()%></li>
+                             <li><label class="formlable s2repeaterButton"> First name</label> :<%= casedetail.getUser().getName()!=null?casedetail.getUser().getName(): ""%></li>
+                            <li><label class="formlable s2repeaterButton" > Last name</label>:<%= casedetail.getUser().getLastName()!=null?casedetail.getUser().getLastName():""%> </li>
+                            <li><label class="formlable s2repeaterButton"> E-mail address</label> :<%= casedetail.getUser().getEmail()!=null? casedetail.getUser().getEmail(): ""%></li>
+                            <li><label class="formlable s2repeaterButton"> MobileNo</label> :<%= casedetail.getUser().getMobileNo()!=null ? casedetail.getUser().getMobileNo():""%></li>
+                            <li><label class="formlable s2repeaterButton"> Landline Number</label>:<%= casedetail.getUser().getLandlineNumber()!=null? casedetail.getUser().getLandlineNumber():""%></li>
+                             <li><label class="formlable s2repeaterButton"> Address</label> :<%= casedetail.getUser().getAddress()!=null ?casedetail.getUser().getAddress():""%></li>
+                             <li><label class="formlable s2repeaterButton"> Age</label>:<%= casedetail.getUser().getAge()!=null ? casedetail.getUser().getAge():""%></li>
+                             <li><label class="formlable s2repeaterButton">Gender</label>:<%= casedetail.getUser().getGender()!=null ? casedetail.getUser().getGender():""%></li>
 
 
 
@@ -1850,27 +1850,27 @@
 
 
  <li><label class="formlable s2repeaterButton"> FileNo</label>
-                                 :<%= casedetail.getFileNo()%></li>
+                                 :<%= casedetail.getUser().getGender()!=null? casedetail.getFileNo():""%></li>
 
                                  <li><label class="formlable s2repeaterButton"> CaseNo</label>
-                               :<%= casedetail.getCaseNo()%></li>
+                               :<%= casedetail.getCaseNo()!=null ?casedetail.getCaseNo():""%></li>
 
                                  <li><label class="formlable s2repeaterButton"> Case Title</label>
-                                  :<%= casedetail.getUser().getGender()%></li>
+                                  :<%= casedetail.getUser().getGender()!=null?casedetail.getUser().getGender():""%></li>
 
                                  <li><label class="formlable s2repeaterButton"> Advocate</label>
-                                 :<%= casedetail.getAdvocate()%></li>
+                                 :<%= casedetail.getAdvocate()!=null?casedetail.getAdvocate():""%></li>
 
                                  <li><label class="formlable s2repeaterButton"> Stage</label>
-                               :<%= casedetail.getStage()%></li>
+                               :<%= casedetail.getStage()!=null ?casedetail.getStage():""%></li>
 
                                  <li><label class="formlable s2repeaterButton"> Description</label>
-                                :<%= casedetail.getDescripation()%></li>
+                                :<%= casedetail.getDescripation()!=null?casedetail.getDescripation():""%></li>
                          <li><label class="formlable s2repeaterButton"> Next Date</label>
-                               :<%= casedetail.getNextDate()%></li>
+                               :<%= casedetail.getNextDate()!=null?casedetail.getNextDate():""%></li>
 
                                  <li><label class="formlable s2repeaterButton"> Previous Date</label>
-                                 :<%= casedetail.getPrevDate()%></li>
+                                 :<%= casedetail.getPrevDate()!=null?casedetail.getPrevDate():""%></li>
 
                                  <li><label class="formlable s2repeaterButton"> Court</label>
                                 :
@@ -1917,23 +1917,23 @@
 
                                  <li>
                                  <label class="formlable s2repeaterButton">Recived Date</label>
-                                :<%= casedetail.getRecivedDate()%></li>
+                                :<%= casedetail.getRecivedDate()!=null?casedetail.getRecivedDate():""%></li>
 
                                <li>
                                <label class="formlable s2repeaterButton">Date Of Loss</label>
-                               :<%= casedetail.getDateOfLoss()%></li>
+                               :<%= casedetail.getDateOfLoss()!=null?casedetail.getDateOfLoss():""%></li>
                                 <li><label class="formlable s2repeaterButton">Vehicle No</label>
-                                                                :<%= casedetail.getVehicleNo()%></li>
+                                                                :<%= casedetail.getVehicleNo()!=null?casedetail.getVehicleNo():""%></li>
                                   <li><label class="formlable s2repeaterButton">Sub Advocate</label>
-                                :<%= casedetail.getSubAdvocate()%></li>
+                                :<%= casedetail.getSubAdvocate()!=null?casedetail.getSubAdvocate():""%></li>
                                <li><label class="formlable s2repeaterButton">Policy No</label>
-                               :<%= casedetail.getPolicyNo()%></li>
+                               :<%= casedetail.getPolicyNo()!=null?casedetail.getPolicyNo():""%></li>
                                <li>
                                <label class="formlable s2repeaterButton">DL No</label>
-                                :<%= casedetail.getDLNo()%></li>
+                                :<%= casedetail.getPolicyNo()!=null?casedetail.getDLNo():""%></li>
                                 <li>
                                 <label class="formlable s2repeaterButton">Deposiet Date</label>
-                                :<%= casedetail.getDeposietDate()%></li>
+                                :<%= casedetail.getDeposietDate()!=null?casedetail.getDeposietDate():""%></li>
 
                             </ul>
                             </div>

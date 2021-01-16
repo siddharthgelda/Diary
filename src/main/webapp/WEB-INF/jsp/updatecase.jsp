@@ -22,6 +22,12 @@
          display: none;
          z-index: 7
          }
+         th, td {
+           text-align: left;
+           padding: 8px;
+         }
+
+         tr:nth-child(even) {background-color: #f2f2f2;}
       </style>
    </head>
    <body>
@@ -150,7 +156,7 @@
                <%
                   List<UserDetail> caselist=(List<UserDetail>)request.getAttribute("cases");
                   %>
-               <form action="/updatecase" method="get">
+               <form action="/updatecase" method="get" style="margin-top:50px;margin-bottom:50px">
                   <div>
                      <B>Filters:</B>
                      <br/>
@@ -257,7 +263,7 @@
                   <th>City</th>
                   <th>Client name</th>
                   <th>Mobile Number</th>
-                  <th>Address</th>
+
                   <th> Action</th>
                </tr>
                <%
@@ -294,7 +300,7 @@
                         String nextDate=caseobj.getNextDate()!=null?format.format(caseobj.getNextDate()):"";
                         %>
                      <td><%=prevdate%></td>
-                     <td><input type="text" value=
+                     <td><input style="width:100px" type="text" value=
                         <%=nextDate%>  name="nextdate" id="nextdate<%= caseobj.getId()%>"  class="nxtDate<%= caseobj.getId()%>"/></td>
                      <td>
                         <%=caseobj.getCourt().getName()%>
@@ -309,11 +315,9 @@
                         <%=caseobj.getUser().getName()+" "+caseobj.getUser().getLastName()%>
                      </td>
                      <td>
-                        <%= caseobj.getUser().getMobileNo()+"/"+caseobj.getUser().getLandlineNumber() %>
+                        <%= caseobj.getUser().getMobileNo()+"<br>/"+caseobj.getUser().getLandlineNumber() %>
                      </td>
-                     <td>
-                        <%=caseobj.getUser().getAddress()%>
-                     </td>
+
                      <td><input type="hidden"  value="<%= caseobj.getId()%>" name="id" id="id"/><input type="submit" value="update" name="update" /></td>
                   </tr>
                </form>
@@ -336,16 +340,7 @@
       </div>
       </div>
       </div>
-      <div class="s0_bg_footer" style="width: 100%!important;height: 10% " id="footer">
-         <table style="width:100%">
-            <tr style="width:100%">
-               <td style="width:100%;text-align: right;">
-                  <span style="text-align: right"; class="color_12">FOLLOW US:</span>
-                  <img data-reactid=".0.$SITE_ROOT.$desktop_siteRoot.$SITE_FOOTER.1.1.$LnkBr1.0.1.0.0.$image" style="width:20px;height:20px;object-fit:cover;" src="/static/images/89b1d2497b29ccbb7d37be1ec6ef0052.png" alt="" id="LnkBr1i120mgimageimage">
-               </td>
-            </tr>
-         </table>
-      </div>
+
       </div>
       </div>
       <script>

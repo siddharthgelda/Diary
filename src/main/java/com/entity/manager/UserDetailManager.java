@@ -115,13 +115,13 @@ public class UserDetailManager {
         return caseRepository.save(caseentity);
     }
 
-    public boolean sendTodaysCaseEmail() {
+    public String sendTodaysCaseEmail() {
         Instant instant = Instant.now();
         java.util.Date todayDate = Date.from(instant);
         System.out.println(todayDate.toString());
         List<UserDetail> list = caseRepository.findByNextDate(todayDate);
         String mailData = Util.createExcelSheet(list);
         emailHelper.sendCaseListEmail(mailData);
-        return Boolean.TRUE;
+        return mailData;
     }
 }
